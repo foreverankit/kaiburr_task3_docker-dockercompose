@@ -6,13 +6,13 @@ It is a very simple Spring Boot web application which saves users into Mongo DB.
 
 ## Requirements
 
-###Any Linux distribution/Mac OS/Windows
+### Any Linux distribution/Mac OS/Windows
 
-###Docker
+### Docker
 
-###Docker-compose
+### Docker-compose
 
-###Java JDK
+### Java JDK
 
 
 ## You can clone my project or make a new project. Just dont forget to build an executable jar file. Once maven clean build is run it will be created in the target folder.
@@ -20,6 +20,7 @@ It is a very simple Spring Boot web application which saves users into Mongo DB.
 
 ## Create a docker file in the root folder of your project
 
+![Screenshot from 2020-02-20 04-28-43](https://user-images.githubusercontent.com/31029148/74884602-90a42680-5399-11ea-88f0-ac9f38d41bbe.png)
 
 Build image for our Java application from openjdk alpine image
 
@@ -41,6 +42,8 @@ The following uri describes the connection to mongodb and springboot-mongo is th
 
 ## Create docker-compose.yml file and add the follwing code. Below code is just the services  we need from docker
 
+![Screenshot from 2020-02-20 04-28-54](https://user-images.githubusercontent.com/31029148/74884607-939f1700-5399-11ea-8dae-2be5e0eff4dd.png)
+
 
 ## Running our application on docker
 
@@ -53,12 +56,35 @@ docker-compose up -d
 Our running web application should be available in browser by this URL : http://localhost:8182. Now we can create some server objects.
 
 
+## TO see the containers active
+
+Hit command : sudo docker images
+
+You will find the following
+
+![Screenshot from 2020-02-20 04-34-31](https://user-images.githubusercontent.com/31029148/74884914-4ff8dd00-539a-11ea-8ee5-888e9cd91734.png)
+
+
 ## Add bash to mongo container
 
 By running this command we will add bash to mongo container.
 
 docker exec -i -t springboot-mongo /bin/bash 
 
+The console/terminal will be changed to something like: root@ff55937c3772:/#. It means we’re inside the docker container.
+
+After this write root@ff55937c3772:/#mongo
+
+Now write : root@ff55937c3772:/#use springmongo-db
+
+Now write : root@ff55937c3772:/#db.servers.find()
+
+![Screenshot from 2020-02-20 04-36-10](https://user-images.githubusercontent.com/31029148/74885031-92bab500-539a-11ea-8b76-95750454610a.png)
+
+
+Here it is both the containers are running seperately.
+
+Thank you..!
 
 
 
